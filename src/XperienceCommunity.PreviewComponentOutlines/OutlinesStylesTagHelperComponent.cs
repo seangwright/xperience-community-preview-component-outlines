@@ -13,41 +13,49 @@ namespace XperienceCommunity.PreviewComponentOutlines
         {
             get
             {
-                return @"<style>
-[data-page-builder-component]:hover {
-    outline: 2px #ccc dashed;
+                return $$"""
+<style>
+[data-xpc-preview-outline]:hover {
+    outline: 2px {{config.OutlineColor}} dashed;
     position: relative;
 }
 
-[data-page-builder-component$='Section']:hover::before {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    content: attr(data-page-builder-component);
-    white-space: pre;
+[data-xpc-preview-outline]:hover::before {
     display: inline;
-    font-size: 1rem;
     position: absolute;
+    white-space: pre;
+    content: attr(data-xpc-preview-outline);
+    padding: {{config.Padding}};
+    color: {{config.FontColor}};
+    background-color: {{config.BackgroundColor}};
+    border: 1px solid {{config.LabelBorderColor}};
+    border-radius: 5000px;
+    font-size: {{config.FontSize}};
+    z-index: 1;
+    opacity: {{config.Opacity}};
+    isolation: isolate;
 }
 
-[data-page-builder-component$='Widget']:hover::before {
-    top: 0;
+[data-xpc-preview-outline$='Section']:hover::before {
+    top: .2rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+[data-xpc-preview-outline$='Widget']:hover::before {
+    top: .2rem;
     left: 0;
     left: 0.2rem;
-    content: attr(data-page-builder-component);
-    white-space: pre;
-    display: inline;
-    font-size: 1rem;
-    position: absolute;
 }
-</style>";
+</style>
+""";
             }
         }
 
         private readonly IHttpContextAccessor accessor;
         private readonly OutlinesConfiguration config;
 
-        public override int Order => 1;
+        public override int Order => 100;
 
         public OutlinesStylesTagHelperComponent(IHttpContextAccessor accessor, IOptions<OutlinesConfiguration> options)
         {
@@ -61,7 +69,7 @@ namespace XperienceCommunity.PreviewComponentOutlines
 
             bool isPreviewMode = !httpContext.Kentico().PageBuilder().EditMode && httpContext.Kentico().Preview().Enabled;
 
-            if (!isPreviewMode)
+            if (!isPreviewMode || !config.UseIncludedStyles)
             {
                 return Task.CompletedTask;
             }

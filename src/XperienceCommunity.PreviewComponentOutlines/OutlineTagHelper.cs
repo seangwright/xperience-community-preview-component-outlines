@@ -34,6 +34,6 @@ public class OutlineTagHelper : TagHelper
             return;
         }
 
-        output.Attributes.Add("data-page-builder-component", ComponentName);
+        output.Attributes.Add("data-xpc-preview-outline", ComponentName);
     }
 }
