@@ -10,11 +10,11 @@
       },
       "Kentico.Xperience.Core.Tests": {
         "type": "Direct",
-        "requested": "[26.1.1, )",
-        "resolved": "26.1.1",
-        "contentHash": "OrJXsYNsm/n6izUtiAAYgjXoa3qVUmaTstoNlwSnVq976LOdsOq8+5oJqf/VygedZvqckRN8sYMMhEtb29cT0g==",
+        "requested": "[26.0.0, )",
+        "resolved": "26.0.0",
+        "contentHash": "Mwl/X9iZ6AF/Tgu+/osKugAWG3GG6q4zUMleMeQv2QCbtLOVKHA2wYQUPT4WqOyUvcrQ8BouWrCdWRo+vTE8dQ==",
         "dependencies": {
-          "Kentico.Xperience.Core": "[26.1.1]",
+          "Kentico.Xperience.Core": "[26.0.0]",
           "NUnit": "3.13.3",
           "Newtonsoft.Json": "13.0.3"
         }
@@ -112,8 +112,8 @@
       },
       "Kentico.Xperience.Core": {
         "type": "Transitive",
-        "resolved": "26.1.1",
-        "contentHash": "FeePHzePPvUe3iyYLkQpERC1kvDYg2kEI5tyqfYdtXhrT0SBXfwColmPiD2R9tUxuvR533gEe8+PAa63/Y7Reg==",
+        "resolved": "26.0.0",
+        "contentHash": "yIPkpZydHnJMKLQMNWvzdMeDgvRzCSPacwWGwI+n3NzLHIBV1RH6g/G/kpVcgUPL6w40fCmxgV9VOJbxhuWuUQ==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "Azure.Identity": "1.8.2",
@@ -135,12 +135,12 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "Transitive",
-        "resolved": "26.1.1",
-        "contentHash": "zEhzIonbhRJE1h/fwXuTl77TjzG9yqmwsnqNUFSe1MqkKDVwE7NSAJblcSfOtLYjG61K3PoPj0ZEzRRq0G2LgQ==",
+        "resolved": "26.0.0",
+        "contentHash": "U3oRNKIBHUu/6O/Up98Wl0RE6axqP8uK/fbkAEn0iW7sXYRUmelW6diRPmv5O1DYBaybLo/hgFD9hLrkQFnfXA==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HtmlSanitizer": "8.0.645",
-          "Kentico.Xperience.Core": "[26.1.1]",
+          "Kentico.Xperience.Core": "[26.0.0]",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.15",
           "Microsoft.Extensions.Localization": "6.0.15"
         }
@@ -688,7 +688,7 @@
       "xperiencecommunity.previewcomponentoutlines": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.WebApp": "[26.1.1, )"
+          "Kentico.Xperience.WebApp": "[26.0.0, )"
         }
       }
     }
