@@ -9,6 +9,13 @@ namespace XperienceCommunity.PreviewComponentOutlines
         public string LabelBorderColor { get; set; } = "#7f09b7";
         public string Padding { get; set; } = ".5rem";
         public string Opacity { get; set; } = ".8";
+        /// <summary>
+        /// If true, the styles provided by the library will be used for Page Builder component
+        /// outlines and labels along with any customized values in this configuration class.
+        /// 
+        /// If false, the user will be expected to provide their own styles.
+        /// </summary>
+        /// <value>Defaults to true</value>
         public bool UseIncludedStyles { get; set; } = true;
     }
 }

@@ -7,6 +7,10 @@ using Microsoft.Extensions.Options;
 
 namespace XperienceCommunity.PreviewComponentOutlines
 {
+    /// <summary>
+    /// Targets the &lt;head&gt; element and inserts a custom CSS &lt;style&gt; element
+    /// to style Page Builder component outlines and labels.
+    /// </summary>
     public class OutlinesStylesTagHelperComponent : TagHelperComponent
     {
         private string Style

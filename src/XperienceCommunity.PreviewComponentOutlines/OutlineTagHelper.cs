@@ -6,6 +6,10 @@ using Kentico.Content.Web.Mvc;
 
 namespace XperienceCommunity.PreviewComponentOutlines;
 
+/// <summary>
+/// Decorates an HTML element with a custom attribute used for outline and label styles
+/// in Page Builder Preview mode
+/// </summary>
 [HtmlTargetElement("*", Attributes = TAG_HELPER_ATTRIBUTE)]
 public class OutlineTagHelper : TagHelper
 {
