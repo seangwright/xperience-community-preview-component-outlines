@@ -29,14 +29,14 @@ namespace XperienceCommunity.PreviewComponentOutlines
     position: absolute;
     white-space: pre;
     content: attr(data-xpc-preview-outline);
-    padding: {{config.Padding}};
-    color: {{config.FontColor}};
-    background-color: {{config.BackgroundColor}};
+    padding: {{config.LabelPadding}};
+    color: {{config.LabelFontColor}};
+    background-color: {{config.LabelBackgroundColor}};
     border: 1px solid {{config.LabelBorderColor}};
     border-radius: 5000px;
-    font-size: {{config.FontSize}};
+    font-size: {{config.LabelFontSize}};
     z-index: 1;
-    opacity: {{config.Opacity}};
+    opacity: {{config.LabelOpacity}};
     isolation: isolate;
 }
 
