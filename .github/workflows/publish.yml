@@ -30,12 +30,7 @@ jobs:
       - name: Test Solution
         run: dotnet test --configuration Release --no-build --no-restore
 
-      - name: 'Pack and Publish: Core'
-        uses: ./.github/actions/pack-and-publish
-        with:
-          projectPath: './src/XperienceCommunity.PreviewComponentOutlines'
-          preReleaseVersion: ${{ github.run_number }}-${{ github.run_attempt }}
-      - name: 'Pack and Publish: Data'
+      - name: 'Pack and Publish'
         uses: ./.github/actions/pack-and-publish
         with:
           projectPath: './src/XperienceCommunity.PreviewComponentOutlines'
