@@ -4,7 +4,7 @@ Enables outlines of Page Builder components in Preview mode for a Page.
 
 This can help marketers and content managers visualize how various Page Builder components are composed on a page without the design limitations of the Page Builder edit mode.
 
-![Outlines and labels of Page Builder components in Preview mode](./images/outlines.gif)
+![Outlines and labels of Page Builder components in Preview mode](https://raw.githubusercontent.com/seangwright/xperience-community-preview-component-outlines/main/images/outlines.gif)
 
 [![GitHub Actions CI: Build](https://github.com/seangwright/xperience-community-preview-component-outlines/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/seangwright/xperience-community-preview-component-outlines/actions/workflows/ci.yml)
 
