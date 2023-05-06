@@ -11,7 +11,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Title>$(Product)</Title>
 		<PackageProjectUrl>https://github.com/seangwright/xperience-community-preview-component-outlines</PackageProjectUrl>
-		<PackageIcon>kentico.png</PackageIcon>
+		<PackageIcon>Icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>xperience;kentico;aspnetcore;page-builder</PackageTags>
 		<PackageReleaseNotes>https://github.com/seangwright/xperience-community-preview-component-outlines/releases</PackageReleaseNotes>
