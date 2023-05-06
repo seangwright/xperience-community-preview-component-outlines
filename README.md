@@ -6,7 +6,25 @@ This can help marketers and content managers visualize how various Page Builder 
 
 ![Outlines and labels of Page Builder components in Preview mode](./images/outlines.gif)
 
+[![GitHub Actions CI: Build](https://github.com/seangwright/xperience-community-preview-component-outlines/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/seangwright/xperience-community-preview-component-outlines/actions/workflows/ci.yml)
+
+[![Publish Packages to NuGet](https://github.com/seangwright/xperience-community-preview-component-outlines/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/seangwright/xperience-community-preview-component-outlines/actions/workflows/publish.yml)
+
+## Packages
+
+### PreviewComponentOutlines
+
+[![NuGet Package](https://img.shields.io/nuget/v/PreviewComponentOutlines.svg)](https://www.nuget.org/packages/PreviewComponentOutlines)
+
+_Requirements_: [Xperience by Kentico](https://docs.xperience.io/xp) >= v25.0.0
+
 ## Setup
+
+Install the `XperienceCommunity.PreviewComponentOutlines` NuGet package in your ASP.NET Core application:
+
+```bash
+dotnet add package XperienceCommunity.PreviewComponentOutlines
+```
 
 In your `Program.cs` add the following line where the rest of your services are configured:
 
@@ -19,7 +37,7 @@ If you want to configure the styles of the outlines and labels, use the method o
 ```csharp
 builder.Services.AddPreviewComponentOutlines(o =>
 {
-    o.FontColor = "#3a3a3a";
+    o.LabelFontColor = "#3a3a3a";
 });
 ```
 
@@ -32,8 +50,10 @@ In your `_ViewImports.cshtml` add the following line to make the library's tag h
 In each Page Builder component you would like to have an outline and label, add the following tag helper to the most top-level HTML element of the component's view, where `Component Widget|Section` is the name of the component:
 
 ```html
-<div xpc-preview-outline="Component Widget|Section">
+<div xpc-preview-outline="Component Widget|Section"></div>
 ```
+
+**Note**: The name of the component must end in "Section" or "Widget" to ensure the correct styles are applied correctly.
 
 Example:
 
@@ -44,5 +64,3 @@ Example:
   <!-- ... other markup -->
 </section>
 ```
-
-The name of the component must end in "Section" or "Widget" to ensure the correct styles are applied correctly.
