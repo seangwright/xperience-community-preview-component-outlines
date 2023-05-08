@@ -14,6 +14,7 @@ namespace XperienceCommunity.PreviewComponentOutlines;
 public class OutlineTagHelper : TagHelper
 {
     public const string TAG_HELPER_ATTRIBUTE = "xpc-preview-outline";
+    public const string TAG_HELPER_OUTPUT_ATTRIBUTE = "data-xpc-preview-outline";
 
     private readonly IHttpContextAccessor accessor;
 
@@ -38,6 +39,6 @@ public class OutlineTagHelper : TagHelper
             return;
         }
 
-        output.Attributes.Add("data-xpc-preview-outline", ComponentName);
+        output.Attributes.Add(TAG_HELPER_OUTPUT_ATTRIBUTE, ComponentName);
     }
 }
