@@ -13,46 +13,53 @@ namespace XperienceCommunity.PreviewComponentOutlines
     /// </summary>
     public class OutlinesStylesTagHelperComponent : TagHelperComponent
     {
-        private string Style
+        private string style = "";
+
+        public string Style
         {
             get
             {
-                return $$"""
-<style>
-[data-xpc-preview-outline]:hover {
-    outline: 2px {{config.OutlineColor}} dashed;
-    position: relative;
-}
+                if (string.IsNullOrWhiteSpace(style))
+                {
+                    style = $$"""
+                        <style>
+                        [data-xpc-preview-outline]:hover {
+                            outline: 2px {{config.OutlineColor}} dashed;
+                            position: relative;
+                        }
 
-[data-xpc-preview-outline]:hover::before {
-    display: inline;
-    position: absolute;
-    white-space: pre;
-    content: attr(data-xpc-preview-outline);
-    padding: {{config.LabelPadding}};
-    color: {{config.LabelFontColor}};
-    background-color: {{config.LabelBackgroundColor}};
-    border: 1px solid {{config.LabelBorderColor}};
-    border-radius: 5000px;
-    font-size: {{config.LabelFontSize}};
-    z-index: 1;
-    opacity: {{config.LabelOpacity}};
-    isolation: isolate;
-}
+                        [data-xpc-preview-outline]:hover::before {
+                            display: inline;
+                            position: absolute;
+                            white-space: pre;
+                            content: attr(data-xpc-preview-outline);
+                            padding: {{config.LabelPadding}};
+                            color: {{config.LabelFontColor}};
+                            background-color: {{config.LabelBackgroundColor}};
+                            border: 1px solid {{config.LabelBorderColor}};
+                            border-radius: 5000px;
+                            font-size: {{config.LabelFontSize}};
+                            z-index: 1;
+                            opacity: {{config.LabelOpacity}};
+                            isolation: isolate;
+                        }
 
-[data-xpc-preview-outline$='Section']:hover::before {
-    top: .2rem;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
+                        [data-xpc-preview-outline$='Section']:hover::before {
+                            top: .2rem;
+                            left: 50%;
+                            transform: translate(-50%, 0);
+                        }
 
-[data-xpc-preview-outline$='Widget']:hover::before {
-    top: .2rem;
-    left: 0;
-    left: 0.2rem;
-}
-</style>
-""";
+                        [data-xpc-preview-outline$='Widget']:hover::before {
+                            top: .2rem;
+                            left: 0;
+                            left: 0.2rem;
+                        }
+                        </style>
+                        """;
+                }
+
+                return style;
             }
         }
 

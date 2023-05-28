@@ -19,6 +19,7 @@
   <ItemGroup>
     <Using Include="NUnit.Framework" />
     <Using Include="NSubstitute" />
+    <Using Include="XperienceCommunity.PreviewComponentOutlinesTests" />
   </ItemGroup>
 
   <ItemGroup>
