@@ -53,7 +53,7 @@ In each Page Builder component you would like to have an outline and label, add 
 <div xpc-preview-outline="Component Widget|Section"></div>
 ```
 
-**Note**: The name of the component must end in "Section" or "Widget" to ensure the correct styles are applied correctly.
+**Note**: The name of the component must end in "Section" or "Widget" to ensure the styles are applied correctly.
 
 Example:
 
