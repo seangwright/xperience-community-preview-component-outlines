@@ -14,7 +14,7 @@ This can help marketers and content managers visualize how various Page Builder 
 
 ### PreviewComponentOutlines
 
-[![NuGet Package](https://img.shields.io/nuget/v/PreviewComponentOutlines.svg)](https://www.nuget.org/packages/PreviewComponentOutlines)
+[![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PreviewComponentOutlines.svg)](https://www.nuget.org/packages/XperienceCommunity.PreviewComponentOutlines)
 
 _Requirements_: [Xperience by Kentico](https://docs.xperience.io/xp) >= v25.0.0
 
