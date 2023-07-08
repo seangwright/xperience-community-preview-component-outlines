@@ -64,3 +64,11 @@ Example:
   <!-- ... other markup -->
 </section>
 ```
+
+## Contributions
+
+If you discover a problem, please [open an issue](https://github.com/seangwright/xperience-community-preview-component-outlines/issues/new).
+
+If you would like contribute to the code or documentation, please [open a pull request](https://github.com/seangwright/xperience-community-preview-component-outlines/compare).
+
+Please refer to the [Code of Conduct](./CODE_OF_CONDUCT.md) when contributing to or opening issues for this repository.
