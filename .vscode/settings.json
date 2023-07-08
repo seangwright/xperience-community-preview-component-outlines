@@ -17,10 +17,7 @@
     "**/bin": true,
     "**/obj": true
   },
-
-  "omnisharp.defaultLaunchSolution": "XperienceCommunity.PreviewComponentOutlines.sln",
   "omnisharp.useEditorFormattingSettings": true,
-  "omnisharp.enableImportCompletion": true,
 
   "dotnet-test-explorer.testProjectPath": "**/*Tests.@(csproj|vbproj|fsproj)",
 
@@ -31,5 +28,7 @@
   },
   "[razor]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
-  }
+  },
+  "dotnet.defaultSolution": "XperienceCommunity.PreviewComponentOutlines.sln",
+  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true
 }
