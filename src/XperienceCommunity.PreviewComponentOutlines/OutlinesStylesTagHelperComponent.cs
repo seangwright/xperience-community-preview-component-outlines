@@ -5,24 +5,26 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Options;
 
-namespace XperienceCommunity.PreviewComponentOutlines
-{
-    /// <summary>
-    /// Targets the &lt;head&gt; element and inserts a custom CSS &lt;style&gt; element
-    /// to style Page Builder component outlines and labels.
-    /// </summary>
-    public class OutlinesStylesTagHelperComponent : TagHelperComponent
-    {
-        private string style = "";
+namespace XperienceCommunity.PreviewComponentOutlines;
 
-        public string Style
+/// <summary>
+/// Targets the &lt;head&gt; element and inserts a custom CSS &lt;style&gt; element
+/// to style Page Builder component outlines and labels.
+/// </summary>
+public class OutlinesStylesTagHelperComponent(
+    IHttpContextAccessor accessor,
+    IOptions<OutlinesConfiguration> options) : TagHelperComponent
+{
+    private string style = "";
+
+    public string Style
+    {
+        get
         {
-            get
+            if (string.IsNullOrWhiteSpace(style))
             {
-                if (string.IsNullOrWhiteSpace(style))
-                {
-                    style = $$"""
-                        <style>
+                style = $$"""
+                    <style>
                         [data-xpc-preview-outline]:hover {
                             outline: 2px {{config.OutlineColor}} dashed;
                             position: relative;
@@ -55,42 +57,35 @@ namespace XperienceCommunity.PreviewComponentOutlines
                             left: 0;
                             left: 0.2rem;
                         }
-                        </style>
-                        """;
-                }
-
-                return style;
+                    </style>
+                    """;
             }
+
+            return style;
         }
+    }
 
-        private readonly IHttpContextAccessor accessor;
-        private readonly OutlinesConfiguration config;
+    private readonly IHttpContextAccessor accessor = accessor;
+    private readonly OutlinesConfiguration config = options.Value;
 
-        public override int Order => 100;
+    public override int Order => 100;
 
-        public OutlinesStylesTagHelperComponent(IHttpContextAccessor accessor, IOptions<OutlinesConfiguration> options)
+    public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+    {
+        var httpContext = accessor.HttpContext;
+
+        bool isPreviewMode = !httpContext.Kentico().PageBuilder().EditMode && httpContext.Kentico().Preview().Enabled;
+
+        if (!isPreviewMode || !config.UseIncludedStyles)
         {
-            this.accessor = accessor;
-            config = options.Value;
-        }
-
-        public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-        {
-            var httpContext = accessor.HttpContext;
-
-            bool isPreviewMode = !httpContext.Kentico().PageBuilder().EditMode && httpContext.Kentico().Preview().Enabled;
-
-            if (!isPreviewMode || !config.UseIncludedStyles)
-            {
-                return Task.CompletedTask;
-            }
-
-            if (string.Equals(context.TagName, "head", StringComparison.OrdinalIgnoreCase))
-            {
-                output.PostContent.AppendHtml(Style);
-            }
-
             return Task.CompletedTask;
         }
+
+        if (string.Equals(context.TagName, "head", StringComparison.OrdinalIgnoreCase))
+        {
+            output.PostContent.AppendHtml(Style);
+        }
+
+        return Task.CompletedTask;
     }
 }

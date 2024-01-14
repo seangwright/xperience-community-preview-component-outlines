@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5DD1ED9B-8E1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.PreviewComponentOutlines", "src\XperienceCommunity.PreviewComponentOutlines\XperienceCommunity.PreviewComponentOutlines.csproj", "{47B45064-794E-4300-817F-2FE8FD539745}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4C2A262F-3F3D-4834-A241-404A90C90F1D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4C2A262F-3F3D-4834-A241-404A90C90F1D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.PreviewComponentOutlinesTests", "test\XperienceCommunity.PreviewComponentOutlinesTests\XperienceCommunity.PreviewComponentOutlinesTests.csproj", "{8F3A022D-097A-45D4-B80D-A4C154BC05F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.PreviewComponentOutlines.Tests", "tests\XperienceCommunity.PreviewComponentOutlines.Tests\XperienceCommunity.PreviewComponentOutlines.Tests.csproj", "{8F3A022D-097A-45D4-B80D-A4C154BC05F6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC9D8D3A-EC28-4E52-91B2-A5293BD7BBB7}"
 	ProjectSection(SolutionItems) = preProject
