@@ -2,7 +2,7 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace XperienceCommunity.PreviewComponentOutlines;
+namespace XperienceCommunity.PreviewComponentOutlines.Tests;
 
 public class OutlineTagHelperTests
 {
@@ -20,15 +20,13 @@ public class OutlineTagHelperTests
         };
         accessor.HttpContext.Returns(httpContext);
 
-        var tagHelperContext = new TagHelperContext("section", new(), new Dictionary<object, object>(), Guid.NewGuid().ToString());
-        var output = new TagHelperOutput("section", new(), (val, encoder) =>
+        var tagHelperContext = new TagHelperContext("section", [], new Dictionary<object, object>(), Guid.NewGuid().ToString());
+        var output = new TagHelperOutput("section", [], (val, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+        var sut = new OutlineTagHelper(accessor)
         {
-            return Task.FromResult<TagHelperContent>(new DefaultTagHelperContent());
-        });
-
-        var sut = new OutlineTagHelper(accessor);
-
-        sut.ComponentName = componentName;
+            ComponentName = componentName
+        };
         sut.Process(tagHelperContext, output);
 
         output.Attributes
@@ -55,15 +53,13 @@ public class OutlineTagHelperTests
         };
         accessor.HttpContext.Returns(httpContext);
 
-        var tagHelperContext = new TagHelperContext("section", new(), new Dictionary<object, object>(), Guid.NewGuid().ToString());
-        var output = new TagHelperOutput("section", new(), (val, encoder) =>
+        var tagHelperContext = new TagHelperContext("section", [], new Dictionary<object, object>(), Guid.NewGuid().ToString());
+        var output = new TagHelperOutput("section", [], (val, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+        var sut = new OutlineTagHelper(accessor)
         {
-            return Task.FromResult<TagHelperContent>(new DefaultTagHelperContent());
-        });
-
-        var sut = new OutlineTagHelper(accessor);
-
-        sut.ComponentName = componentName;
+            ComponentName = componentName
+        };
         sut.Process(tagHelperContext, output);
 
         output.Attributes
@@ -90,15 +86,13 @@ public class OutlineTagHelperTests
         };
         accessor.HttpContext.Returns(httpContext);
 
-        var tagHelperContext = new TagHelperContext("section", new(), new Dictionary<object, object>(), Guid.NewGuid().ToString());
-        var output = new TagHelperOutput("section", new(), (val, encoder) =>
+        var tagHelperContext = new TagHelperContext("section", [], new Dictionary<object, object>(), Guid.NewGuid().ToString());
+        var output = new TagHelperOutput("section", [], (val, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+        var sut = new OutlineTagHelper(accessor)
         {
-            return Task.FromResult<TagHelperContent>(new DefaultTagHelperContent());
-        });
-
-        var sut = new OutlineTagHelper(accessor);
-
-        sut.ComponentName = componentName;
+            ComponentName = componentName
+        };
         sut.Process(tagHelperContext, output);
 
         output.Attributes

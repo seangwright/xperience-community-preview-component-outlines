@@ -11,20 +11,15 @@ namespace XperienceCommunity.PreviewComponentOutlines;
 /// in Page Builder Preview mode
 /// </summary>
 [HtmlTargetElement("*", Attributes = TAG_HELPER_ATTRIBUTE)]
-public class OutlineTagHelper : TagHelper
+public class OutlineTagHelper(IHttpContextAccessor accessor) : TagHelper
 {
     public const string TAG_HELPER_ATTRIBUTE = "xpc-preview-outline";
     public const string TAG_HELPER_OUTPUT_ATTRIBUTE = "data-xpc-preview-outline";
 
-    private readonly IHttpContextAccessor accessor;
+    private readonly IHttpContextAccessor accessor = accessor;
 
     [HtmlAttributeName(TAG_HELPER_ATTRIBUTE)]
     public string? ComponentName { get; set; }
-
-    public OutlineTagHelper(IHttpContextAccessor accessor)
-    {
-        this.accessor = accessor;
-    }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {

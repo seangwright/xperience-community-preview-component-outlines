@@ -15,13 +15,8 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
-
   <ItemGroup>
-    <PackageReference Include="Kentico.Xperience.WebApp" Version="25.0.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Kentico.Xperience.WebApp" />
   </ItemGroup>
 
   <ItemGroup>

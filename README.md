@@ -16,7 +16,17 @@ This can help marketers and content managers visualize how various Page Builder 
 
 [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PreviewComponentOutlines.svg)](https://www.nuget.org/packages/XperienceCommunity.PreviewComponentOutlines)
 
-_Requirements_: [Xperience by Kentico](https://docs.xperience.io/xp) >= v25.0.0
+## Library Version Matrix
+
+| Xperience Version   | Library Version |
+| ------------------- | --------------- |
+| >= 28.1.0           | 2.x             |
+| >= 25.0.0           | 1.x             |
+
+## Dependencies
+
+- [ASP.NET Core 8.0](https://dotnet.microsoft.com/en-us/download)
+- [Xperience by Kentico](https://docs.xperience.io/xp/changelog)
 
 ## Setup
 
