@@ -1,22 +1,22 @@
-name: 'CI: Build and Test'
+name: "CI: Build and Test"
 
 on:
   push:
     branches: [main]
     paths:
-      - '**.cs'
-      - '**.csproj'
-      - '**.props'
-      - '**.targets'
-      - '**.sln'
+      - "**.cs"
+      - "**.csproj"
+      - "**.props"
+      - "**.targets"
+      - "**.sln"
   pull_request:
     branches: [main]
     paths:
-      - '**.cs'
-      - '**.csproj'
-      - '**.props'
-      - '**.targets'
-      - '**.sln'
+      - "**.cs"
+      - "**.csproj"
+      - "**.props"
+      - "**.targets"
+      - "**.sln"
 
 jobs:
   build:
@@ -24,10 +24,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
 
