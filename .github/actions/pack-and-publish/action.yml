@@ -1,13 +1,13 @@
-name: 'Pack and Publish'
+name: "Pack and Publish"
 
-description: 'Packs and publishes a .NET Library as a build artifact'
+description: "Packs and publishes a .NET Library as a build artifact"
 
 inputs:
   projectPath:
-    description: 'Path to the project file'
+    description: "Path to the project file"
     required: true
   preReleaseVersion:
-    description: 'The pre-release version to use for the NuGet package'
+    description: "The pre-release version to use for the NuGet package"
     required: true
 
 runs:
@@ -17,8 +17,8 @@ runs:
       run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build --include-symbols -o ./artifacts/prerelease --version-suffix prerelease-${{ inputs.preReleaseVersion }}
       shell: pwsh
 
-    - name: 'Save prerelease artifact'
-      uses: actions/upload-artifact@v3
+    - name: "Save prerelease artifact"
+      uses: actions/upload-artifact@v4
       with:
         name: prerelease
         path: ./artifacts/prerelease/*
@@ -27,8 +27,8 @@ runs:
       run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build --include-symbols -o ./artifacts/release
       shell: pwsh
 
-    - name: 'Save release artifact'
-      uses: actions/upload-artifact@v3
+    - name: "Save release artifact"
+      uses: actions/upload-artifact@v4
       with:
         name: release
         path: ./artifacts/release/*

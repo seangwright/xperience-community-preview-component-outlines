@@ -1,12 +1,12 @@
-name: 'Release: Publish to NuGet'
+name: "Release: Publish to NuGet"
 
 on:
   workflow_dispatch:
     inputs:
       reason:
-        description: 'The reason for running the workflow'
+        description: "The reason for running the workflow"
         required: true
-        default: 'Manual run'
+        default: "Manual run"
 
 jobs:
   createArtifacts:
@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
 
@@ -30,10 +30,10 @@ jobs:
       - name: Test Solution
         run: dotnet test --configuration Release --no-build --no-restore
 
-      - name: 'Pack and Publish'
+      - name: "Pack and Publish"
         uses: ./.github/actions/pack-and-publish
         with:
-          projectPath: './src/XperienceCommunity.PreviewComponentOutlines'
+          projectPath: "./src/XperienceCommunity.PreviewComponentOutlines"
           preReleaseVersion: ${{ github.run_number }}-${{ github.run_attempt }}
 
   publishPreRelease:
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: prerelease
 
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: release
 
