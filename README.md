@@ -1,6 +1,6 @@
 # Xperience Community: Preview Component Outlines
 
-Enables outlines of Page Builder components in Preview mode for a Page.
+Enables outlines of Page Builder components in Preview mode for [a page in a website channel](https://docs.kentico.com/x/8IfWCQ).
 
 This can help marketers and content managers visualize how various Page Builder components are composed on a page without the design limitations of the Page Builder edit mode.
 
@@ -18,15 +18,16 @@ This can help marketers and content managers visualize how various Page Builder 
 
 ## Library Version Matrix
 
-| Xperience Version   | Library Version |
-| ------------------- | --------------- |
-| >= 28.1.0           | 2.x             |
-| >= 25.0.0           | 1.x             |
+| Xperience Version | Library Version |
+| ----------------- | --------------- |
+| >= 29.3.0         | 3.x             |
+| >= 28.1.0         | 2.x             |
+| >= 25.0.0         | 1.x             |
 
 ## Dependencies
 
 - [ASP.NET Core 8.0](https://dotnet.microsoft.com/en-us/download)
-- [Xperience by Kentico](https://docs.xperience.io/xp/changelog)
+- [Xperience by Kentico](https://docs.kentico.com/changelog)
 
 ## Setup
 
