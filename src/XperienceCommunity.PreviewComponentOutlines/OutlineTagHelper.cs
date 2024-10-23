@@ -11,12 +11,13 @@ namespace XperienceCommunity.PreviewComponentOutlines;
 /// in Page Builder Preview mode
 /// </summary>
 [HtmlTargetElement("*", Attributes = TAG_HELPER_ATTRIBUTE)]
-public class OutlineTagHelper(IHttpContextAccessor accessor) : TagHelper
+public class OutlineTagHelper(IHttpContextAccessor accessor, IPageBuilderDataContextRetriever contextRetriever) : TagHelper
 {
     public const string TAG_HELPER_ATTRIBUTE = "xpc-preview-outline";
     public const string TAG_HELPER_OUTPUT_ATTRIBUTE = "data-xpc-preview-outline";
 
     private readonly IHttpContextAccessor accessor = accessor;
+    private readonly IPageBuilderDataContextRetriever contextRetriever = contextRetriever;
 
     [HtmlAttributeName(TAG_HELPER_ATTRIBUTE)]
     public string? ComponentName { get; set; }
@@ -27,7 +28,8 @@ public class OutlineTagHelper(IHttpContextAccessor accessor) : TagHelper
 
         var httpContext = accessor.HttpContext;
 
-        bool isPreviewMode = !httpContext.Kentico().PageBuilder().EditMode && httpContext.Kentico().Preview().Enabled;
+        bool isPreviewMode = contextRetriever.Retrieve().GetMode() == PageBuilderMode.Off
+            && httpContext.Kentico().Preview().Enabled;
 
         if (!isPreviewMode || ComponentName is null)
         {
