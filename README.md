@@ -20,6 +20,7 @@ This can help marketers and content managers visualize how various Page Builder 
 
 | Xperience Version | Library Version |
 | ----------------- | --------------- |
+| >= 29.6.0         | 4.x             |
 | >= 29.3.0         | 3.x             |
 | >= 28.1.0         | 2.x             |
 | >= 25.0.0         | 1.x             |

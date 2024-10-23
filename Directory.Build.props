@@ -7,7 +7,7 @@
 		<Copyright>Copyright © $(Company) $([System.DateTime]::Now.Year)</Copyright>
 		<Trademark>$(Company)™</Trademark>
 		<Product>XperienceCommunity.PreviewComponentOutlines</Product>
-		<VersionPrefix>3.0.0</VersionPrefix>
+		<VersionPrefix>4.0.0</VersionPrefix>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Title>$(Product)</Title>
 		<PackageProjectUrl>https://github.com/seangwright/xperience-community-preview-component-outlines</PackageProjectUrl>
