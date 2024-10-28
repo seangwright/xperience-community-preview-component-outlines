@@ -29,6 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{8DE5E965
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{BC45E830-89AE-41A0-A42B-00664EDE1FAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DancingGoat", "examples\DancingGoat\DancingGoat.csproj", "{69D863B8-37B7-4374-B2F4-37F8A906B414}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,10 @@ Global
 		{8F3A022D-097A-45D4-B80D-A4C154BC05F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F3A022D-097A-45D4-B80D-A4C154BC05F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F3A022D-097A-45D4-B80D-A4C154BC05F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69D863B8-37B7-4374-B2F4-37F8A906B414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D863B8-37B7-4374-B2F4-37F8A906B414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D863B8-37B7-4374-B2F4-37F8A906B414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D863B8-37B7-4374-B2F4-37F8A906B414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{47B45064-794E-4300-817F-2FE8FD539745} = {5DD1ED9B-8E1D-4A1B-89CC-5A060CB67A95}
 		{8F3A022D-097A-45D4-B80D-A4C154BC05F6} = {4C2A262F-3F3D-4834-A241-404A90C90F1D}
+		{69D863B8-37B7-4374-B2F4-37F8A906B414} = {BC45E830-89AE-41A0-A42B-00664EDE1FAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF74E9A2-EE1C-48CA-A59F-07AA75AEE02F}

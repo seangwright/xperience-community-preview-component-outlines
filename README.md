@@ -70,10 +70,44 @@ In each Page Builder component you would like to have an outline and label, add 
 Example:
 
 ```html
-<!-- _SingleColumnSection.cshtml -->
+<!-- SingleColumnSection.cshtml -->
 
 <section xpc-preview-outline="Single Column Section">
   <!-- ... other markup -->
+</section>
+```
+
+If you added a wrapping HTML element to apply the tag helper to the component and you want to remove that element
+when rendering for a live website request, you can use the `xpc-preview-outline-remove-element` attribute:
+
+```html
+<!-- SingleColumnSection.cshtml -->
+
+<div
+  xpc-preview-outline="Single Column Section"
+  xpc-preview-outline-remove-element="true"
+>
+  <section>
+    <widget-zone name="left" />
+  </section>
+
+  <section>
+    <widget-zone name="right" />
+  </section>
+</div>
+```
+
+The rendered output will include the children elements but not the wrapping parent:
+
+```html
+<!-- SingleColumnSection.cshtml -->
+
+<section>
+  <widget-zone name="left" />
+</section>
+
+<section>
+  <widget-zone name="right" />
 </section>
 ```
 

@@ -45,6 +45,51 @@ public class OutlineTagHelperTests
     }
 
     [Test]
+    public async Task The_Data_Attribute_Element_Will_Be_Removed_When_Remove_Element_Is_Specified_And_The_Request_Is_In_Live_Mode()
+    {
+        string componentName = "My Test Widget";
+
+        var accessor = Substitute.For<IHttpContextAccessor>();
+        var httpContext = Substitute.For<HttpContext>();
+        httpContext.Items = new Dictionary<object, object?>
+        {
+            { "Kentico.Features", ContextFixtures.InitializeFeatures(isEditModeEnabled: false, isPreviewModeEnabled: false) }
+        };
+        accessor.HttpContext.Returns(httpContext);
+        var contextRetriever = Substitute.For<IPageBuilderDataContextRetriever>();
+        var dataContext = Substitute.For<IPageBuilderDataContext>();
+        dataContext.EditMode.Returns(false);
+        contextRetriever.Retrieve().Returns(dataContext);
+
+        var tagHelperContext = new TagHelperContext("div", [], new Dictionary<object, object>(), Guid.NewGuid().ToString());
+        var content = new DefaultTagHelperContent();
+        content.AppendHtml("<section>Test</section>");
+        var output = new TagHelperOutput("div", [], (val, encoder) => Task.FromResult<TagHelperContent>(content));
+
+        var sut = new OutlineTagHelper(accessor, contextRetriever)
+        {
+            ComponentName = componentName,
+            RemoveElement = true
+        };
+        sut.Process(tagHelperContext, output);
+
+        output.Attributes
+            .Where(a => string.Equals(a.Name, OutlineTagHelper.TAG_HELPER_ATTRIBUTE, StringComparison.OrdinalIgnoreCase))
+            .Should().BeEmpty();
+
+        output.Attributes
+            .Where(a =>
+                string.Equals(a.Name, OutlineTagHelper.TAG_HELPER_OUTPUT_ATTRIBUTE, StringComparison.OrdinalIgnoreCase)
+                && string.Equals(a.Value.ToString(), componentName, StringComparison.OrdinalIgnoreCase))
+            .Should().BeEmpty();
+
+        output.TagName.Should().BeNull();
+        output.Content.IsEmptyOrWhiteSpace.Should().BeTrue();
+        var childContent = await output.GetChildContentAsync();
+        childContent.GetContent().Should().Be("<section>Test</section>");
+    }
+
+    [Test]
     public void The_Data_Attribute_Will_Not_Be_Added_When_The_Request_Is_In_PageBuilder_Mode()
     {
         string componentName = "My Test Widget";

@@ -15,12 +15,23 @@ public class OutlineTagHelper(IHttpContextAccessor accessor, IPageBuilderDataCon
 {
     public const string TAG_HELPER_ATTRIBUTE = "xpc-preview-outline";
     public const string TAG_HELPER_OUTPUT_ATTRIBUTE = "data-xpc-preview-outline";
+    public const string TAG_HELPER_REMOVE_ELEMENT_ATTRIBUTE = "xpc-preview-outline-remove-element";
 
     private readonly IHttpContextAccessor accessor = accessor;
     private readonly IPageBuilderDataContextRetriever contextRetriever = contextRetriever;
 
+    /// <summary>
+    /// The name of the component that will be displayed in the outline. Must end in 'Section' or 'Widget'.
+    /// </summary>
     [HtmlAttributeName(TAG_HELPER_ATTRIBUTE)]
     public string? ComponentName { get; set; }
+
+    /// <summary>
+    /// Indicates if the element with the <see cref="TAG_HELPER_ATTRIBUTE" /> attribute should be removed
+    /// when rendered in Live mode.
+    /// </summary>
+    [HtmlAttributeName(TAG_HELPER_REMOVE_ELEMENT_ATTRIBUTE)]
+    public bool? RemoveElement { get; set; }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
@@ -33,6 +44,11 @@ public class OutlineTagHelper(IHttpContextAccessor accessor, IPageBuilderDataCon
 
         if (!isPreviewMode || ComponentName is null)
         {
+            if (RemoveElement is bool removeElement && removeElement)
+            {
+                output.TagName = null;
+            }
+
             return;
         }
 
